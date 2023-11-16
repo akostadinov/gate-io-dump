@@ -1,0 +1,134 @@
+require:
+  - rubocop-performance
+
+Lint:
+  Enabled: true
+
+Performance:
+  Enabled: true
+
+Metrics:
+  Enabled: true
+
+Lint/AmbiguousOperatorPrecedence:
+  Enabled: false
+
+Lint/AssignmentInCondition:
+  AllowSafeAssignment: true
+
+Style/SymbolProc:
+  AutoCorrect: false
+
+Style/Documentation:
+  Enabled: false
+
+Layout/LeadingCommentSpace:
+  Enabled: true
+
+Style/NumericLiterals:
+  Enabled: true
+
+Style/SignalException:
+  EnforcedStyle: only_raise
+
+Style/AndOr:
+  EnforcedStyle: conditionals
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    default: ()
+    '%i': '[]'
+    '%I': '[]'
+    '%r': '{}'
+    '%w': '[]'
+    '%W': '[]'
+
+Style/TrailingCommaInHashLiteral:
+  Enabled: false
+
+Style/TrailingCommaInArrayLiteral:
+  Enabled: false
+
+Style/Lambda:
+  EnforcedStyle: literal
+
+Layout/LineLength:
+  Max: 99
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 20
+
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/ClassLength:
+  Max: 200
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.2
+  UseCache: true
+  Exclude:
+    - 'db/**/*'
+
+Layout/DefEndAlignment:
+  AutoCorrect: true
+
+# Cop supports --auto-correct.
+# Configuration parameters: AlignWith, SupportedStyles, AutoCorrect.
+# SupportedStyles: keyword, variable, start_of_line
+Layout/EndAlignment:
+  Enabled: true
+  EnforcedStyleAlignWith: variable
+
+Layout/CaseIndentation:
+  Enabled: true
+  EnforcedStyle: end
+
+# Cop supports --auto-correct.
+# Configuration parameters: IgnoreEmptyBlocks, AllowUnusedKeywordArguments.
+Lint/UnusedBlockArgument:
+  Enabled: true
+
+# Cop supports --auto-correct.
+# Configuration parameters: AllowUnusedKeywordArguments, IgnoreEmptyMethods.
+Lint/UnusedMethodArgument:
+  Enabled: true
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles, ConsistentQuotesInMultiline.
+# SupportedStyles: single_quotes, double_quotes
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+  Enabled: true
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBraces, SupportedStyles.
+# SupportedStyles: space, no_space, compact
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: true
+
+# Cop supports --auto-correct.
+Layout/SpaceInsideReferenceBrackets:
+  Enabled: true
+
+# Cop supports --auto-correct.
+Layout/SpaceInsideParens:
+  Enabled: true
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles, IndentationWidth.
+# SupportedStyles: with_first_parameter, with_fixed_indentation
+Layout/ParameterAlignment:
+  Enabled: true
+  EnforcedStyle: with_fixed_indentation
+
+Lint/AmbiguousRegexpLiteral:
+  Enabled: true
+
+Naming/RescuedExceptionsVariableName:
+  PreferredName: exception
