@@ -5,6 +5,8 @@ source "https://rubygems.org"
 gem "faye-websocket"
 gem "permessage_deflate"
 
+gem "net-http2"
+
 gem 'rake'
 
 group :development do
