@@ -76,24 +76,25 @@ class DumpOHLC
   end
 
   def reconnect
-    if @connection_semaphore.try_lock
-      begin
-        # disconnect rescue nil # this has to be better thought out not to kill concurrent connections
-        sleep 5 if @last_connection # space out reconnects a little
-        @last_connection = monotonic
+    # it seems like reconnect is done automatically when there is an error handler
+    # if @connection_semaphore.try_lock
+    #   begin
+    #     # disconnect rescue nil # this has to be better thought out not to kill concurrent connections
+    #     sleep 5 if @last_connection # space out reconnects a little
+    #     @last_connection = monotonic
         @connection = NetHttp2::Client.new(ADDRESS)
-        # still a thread may grab the connection before we nil it
+    #     # still a thread may grab the connection before we nil it
         @connection.on(:error) do |exception|
-          @connection = nil
+    #       @connection = nil
           warn "connection: #{exception.inspect}"
         end
         @connection
-      ensure
-        @connection_semaphore.unlock
-      end
-    else
-      @connection_semaphore.synchronize { @connection }
-    end
+    #   ensure
+    #     @connection_semaphore.unlock
+    #   end
+    # else
+    #   @connection_semaphore.synchronize { @connection }
+    # end
   end
 
   def connection
